@@ -182,6 +182,8 @@ a { color: inherit; }
   flex-shrink: 0;
 }
 .polaroid:nth-child(2) { transform: rotate(2deg); }
+.photo-row .polaroid:nth-child(even) { transform: rotate(2deg); }
+.photo-row .polaroid:nth-child(3n) { transform: rotate(-1.5deg); }
 .polaroid img {
   width: 100%;
   height: 170px;
