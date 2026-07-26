@@ -298,10 +298,6 @@ h2 { font-size: 18px; color: var(--ink); margin: 0 0 14px; }
 }
 .skill-tag.cert { background: #fff7d6; }
 
-/* ===== Callout ===== */
-.callout .window-body { background: #f4f0ff; }
-.callout p { font-size: 21px; line-height: 1.5; }
-
 /* ===== Jukebox ===== */
 .jukebox { text-align: center; }
 .boombox { display: flex; flex-direction: column; align-items: center; gap: 14px; }
