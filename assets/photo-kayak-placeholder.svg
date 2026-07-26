@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
+  <defs>
+    <linearGradient id="rb2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#FFE700"/>
+      <stop offset="100%" stop-color="#FF6EC7"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="350" fill="#111"/>
+  <rect x="10" y="10" width="480" height="330" fill="none" stroke="url(#rb2)" stroke-width="8" stroke-dasharray="16 10"/>
+  <text x="250" y="150" font-family="Courier New, monospace" font-size="20" fill="#00F0FF" text-anchor="middle" font-weight="bold">[ PHOTO SLOT ]</text>
+  <text x="250" y="185" font-family="Courier New, monospace" font-size="15" fill="#FFE700" text-anchor="middle">the homemade kayak pic!</text>
+  <text x="250" y="220" font-family="Courier New, monospace" font-size="12" fill="#39FF14" text-anchor="middle">drop file in as:</text>
+  <text x="250" y="242" font-family="Courier New, monospace" font-size="12" fill="#FF6EC7" text-anchor="middle">assets/photo-kayak.jpg</text>
+  <text x="250" y="295" font-family="Courier New, monospace" font-size="30" text-anchor="middle">🛶</text>
+</svg>
