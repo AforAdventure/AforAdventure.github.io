@@ -198,8 +198,8 @@ a { color: inherit; }
 
 /* ===== Polaroids ===== */
 .polaroid {
-  background: var(--paper);
-  border: 1px solid #ccc;
+  background: color-mix(in srgb, var(--accent-b) 55%, black);
+  border: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.5);
   padding: 10px 10px 14px;
   width: 210px;
@@ -222,7 +222,7 @@ a { color: inherit; }
   font-size: 13px;
   letter-spacing: 0.02em;
   margin: 8px 0 0;
-  color: var(--ink);
+  color: var(--paper);
 }
 .hero-photo { width: 220px; }
 .hero-photo img { height: 220px; }
