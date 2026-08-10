@@ -72,6 +72,47 @@ const SONG_TITLE = "Ruby Soho — Rancid";
   heroBtn.addEventListener('click', () => setExpanded(true));
 })();
 
+/* Real guestbook — submits via FormSubmit.co, no backend of my own needed.
+   NOTE: the first submission to a new address requires a one-time click-to-
+   activate confirmation email from FormSubmit before delivery works. */
+const GUESTBOOK_EMAIL = "oneadp@gmail.com";
+
+(function guestbook() {
+  const form = document.getElementById('guestbook-form');
+  const status = document.getElementById('guestbook-status');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // honeypot: bots fill every field, real visitors never see this one
+    if (form.elements.website && form.elements.website.value) {
+      status.textContent = '✅ SIGNED! THANKS FOR STOPPING BY.';
+      form.reset();
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    status.textContent = 'SENDING...';
+
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${GUESTBOOK_EMAIL}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error('bad response');
+      status.textContent = '✅ SIGNED! THANKS FOR STOPPING BY.';
+      form.reset();
+    } catch (err) {
+      status.textContent = '⚠ COULD NOT SEND — EMAIL ME DIRECTLY INSTEAD.';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+})();
+
 /* Fun fake visitor counter, persisted locally per-browser */
 (function visitorCounter() {
   const el = document.getElementById('visitor-count');

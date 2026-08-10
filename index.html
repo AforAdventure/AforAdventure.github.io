@@ -133,7 +133,17 @@
   <section class="section contact-body">
     <span class="eyebrow">CONTACT.EXE</span>
     <h2>Sign My Guestbook</h2>
-    <p class="lede">(or, y'know, just email me)</p>
+    <p class="lede">Leave a note — it comes straight to my inbox.</p>
+    <form id="guestbook-form" class="guestbook-form">
+      <input type="text" name="name" placeholder="YOUR NAME" required maxlength="60">
+      <textarea name="message" placeholder="LEAVE A NOTE..." required maxlength="500" rows="3"></textarea>
+      <input type="hidden" name="_subject" value="New sign-in on Alex Padilla's guestbook!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="website" class="guestbook-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="btn-90s">✎ SIGN THE GUESTBOOK</button>
+      <p id="guestbook-status" class="guestbook-status" role="status"></p>
+    </form>
+    <p class="lede contact-divider">...or reach me directly:</p>
     <div class="contact-buttons">
       <a class="btn-90s" href="mailto:oneadp@gmail.com">✉ oneadp@gmail.com</a>
       <a class="btn-90s" href="https://www.linkedin.com/in/alexandra-ag" target="_blank" rel="noopener">⬡ LinkedIn</a>
@@ -157,5 +167,6 @@
 
 <script src="script.js"></script>
 <script src="snake.js"></script>
+<script src="extras.js"></script>
 </body>
 </html>

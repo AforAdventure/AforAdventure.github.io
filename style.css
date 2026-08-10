@@ -236,7 +236,7 @@ a { color: inherit; }
 }
 
 /* ===== Snake game ===== */
-.snake-wrap { margin-top: 34px; text-align: center; }
+.snake-wrap { position: relative; margin-top: 34px; text-align: center; }
 .snake-label {
   font-family: var(--mono);
   font-size: 12px;
@@ -362,6 +362,55 @@ a { color: inherit; }
 .contact-body .eyebrow { transform: rotate(-1deg); }
 .contact-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
 
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+.guestbook-form input[type="text"],
+.guestbook-form textarea {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--paper);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  resize: vertical;
+}
+.guestbook-form input[type="text"]::placeholder,
+.guestbook-form textarea::placeholder {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.guestbook-form input[type="text"]:focus,
+.guestbook-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-a);
+}
+.guestbook-form .btn-90s { align-self: flex-start; }
+.guestbook-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.guestbook-status {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-a);
+  min-height: 16px;
+  margin: 2px 0 0;
+}
+.contact-divider { margin-top: 24px; }
+
 /* ===== Footer ===== */
 footer { text-align: center; padding: 10px 0 30px; }
 .badge-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
@@ -390,10 +439,86 @@ footer { text-align: center; padding: 10px 0 30px; }
 }
 .fine-print { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 16px; }
 
+/* ===== Konami toast + confetti ===== */
+.konami-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 2000;
+  max-width: min(92vw, 560px);
+  padding: 14px 20px;
+  background: #000;
+  color: var(--accent-d);
+  border: 1px solid var(--accent-d);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 24px rgba(156, 255, 47, 0.5), var(--shadow);
+  transform: translate(-50%, -30px);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+.konami-toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+.confetti-piece {
+  position: fixed;
+  top: -20px;
+  width: 9px;
+  height: 9px;
+  z-index: 1999;
+  pointer-events: none;
+  animation: confetti-fall linear forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--drift), 110vh) rotate(540deg); opacity: 0.8; }
+}
+
+/* ===== Sparkle cursor trail ===== */
+.sparkle {
+  position: fixed;
+  z-index: 1998;
+  pointer-events: none;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  animation: sparkle-fade 0.7s ease-out forwards;
+}
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(-50%, -140%) scale(0.4) rotate(45deg); }
+}
+
+/* ===== Snake milestone toast ===== */
+.snake-toast {
+  position: fixed;
+  z-index: 2000;
+  padding: 10px 16px;
+  background: #000;
+  color: var(--accent-d);
+  border: 1px solid var(--accent-d);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 18px rgba(156, 255, 47, 0.5);
+  transform: translate(-50%, -12px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.snake-toast.show { transform: translate(-50%, 0); opacity: 1; }
+
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
   body { font-size: 17px; }
   .hero, .section { padding: 20px 18px 24px; }
   .hero-photo, .hero-photo img { width: 100%; max-width: 260px; }
   .hero-floor { display: none; }
+  .sparkle { display: none; }
 }

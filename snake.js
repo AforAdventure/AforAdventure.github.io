@@ -26,7 +26,7 @@
   let high = parseInt(localStorage.getItem(HIGH_KEY) || '0', 10);
   highEl.textContent = high;
 
-  let snake, dir, nextDir, food, score, tickMs, timer, started, gameOver;
+  let snake, dir, nextDir, food, score, tickMs, timer, started, gameOver, priorHigh;
 
   function reset() {
     snake = [{ x: 9, y: 10 }, { x: 8, y: 10 }, { x: 7, y: 10 }];
@@ -36,10 +36,27 @@
     tickMs = TICK_START_MS;
     started = false;
     gameOver = false;
+    priorHigh = high;
     scoreEl.textContent = '0';
     placeFood();
     draw();
     clearInterval(timer);
+  }
+
+  function showMilestoneToast(text) {
+    const rect = canvas.getBoundingClientRect();
+    const el = document.createElement('div');
+    el.className = 'snake-toast';
+    el.textContent = text;
+    el.style.left = (rect.left + rect.width / 2) + 'px';
+    el.style.top = (rect.top + 16) + 'px';
+    el.style.transform = 'translate(-50%, -12px)';
+    document.body.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('show'));
+    setTimeout(() => {
+      el.classList.remove('show');
+      setTimeout(() => el.remove(), 350);
+    }, 1700);
   }
 
   function placeFood() {
@@ -83,6 +100,9 @@
     if (head.x === food.x && head.y === food.y) {
       score += 1;
       scoreEl.textContent = String(score);
+      if (priorHigh > 0 && score === priorHigh + 1) {
+        showMilestoneToast('🎉 NEW HIGH SCORE!');
+      }
       if (score > high) {
         high = score;
         highEl.textContent = String(high);
