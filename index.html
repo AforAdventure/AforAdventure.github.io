@@ -42,7 +42,7 @@
           nearest cave to crawl into. This page is my resume's fun cousin. Scroll on.
         </p>
         <div class="hero-buttons">
-          <a href="#about" class="btn-90s">SEE MY FUN STUFF</a>
+          <a href="#about" id="hero-fun-btn" class="btn-90s">SEE MY FUN STUFF</a>
         </div>
       </div>
     </div>
@@ -62,7 +62,10 @@
       in the Eastern Sierra Nevadas outside Tahoe — which explains a lot about me.
     </p>
 
-    <ul class="pixel-list fun-list">
+    <button id="fun-list-toggle" class="btn-90s fun-list-toggle" type="button" aria-expanded="false" aria-controls="fun-list">
+      ▶ SHOW THE LIST
+    </button>
+    <ul class="pixel-list fun-list" id="fun-list">
       <li>🥾 Grew up hiking, fishing, and skiing in the Sierra — still do all three, still love all three.</li>
       <li>🛶 Built my own kayak during COVID because apparently that's a normal hobby now. Photo below.</li>
       <li>🏺 I'm an artist with a ceramic studio in my garage. Clay is basically my other CRM — messy, forgiving, and always teaching me something.</li>

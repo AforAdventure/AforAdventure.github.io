@@ -52,6 +52,26 @@ const SONG_TITLE = "Ruby Soho — Rancid";
   }
 })();
 
+/* Fun Stuff list starts rolled up; hero button and inline toggle both open it */
+(function funListToggle() {
+  const list = document.getElementById('fun-list');
+  const toggleBtn = document.getElementById('fun-list-toggle');
+  const heroBtn = document.getElementById('hero-fun-btn');
+
+  function setExpanded(expanded) {
+    list.classList.toggle('expanded', expanded);
+    list.style.maxHeight = expanded ? list.scrollHeight + 'px' : '0px';
+    toggleBtn.textContent = expanded ? '▼ HIDE THE LIST' : '▶ SHOW THE LIST';
+    toggleBtn.setAttribute('aria-expanded', String(expanded));
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    setExpanded(toggleBtn.getAttribute('aria-expanded') !== 'true');
+  });
+
+  heroBtn.addEventListener('click', () => setExpanded(true));
+})();
+
 /* Fun fake visitor counter, persisted locally per-browser */
 (function visitorCounter() {
   const el = document.getElementById('visitor-count');
