@@ -100,6 +100,22 @@
         <p>Unusual Animal Series</p>
       </div>
     </div>
+
+    <div class="snake-wrap">
+      <p class="snake-label">🐍 BONUS GAME: SNAKE.EXE — arrow keys, WASD, swipe, or the buttons below</p>
+      <canvas id="snake-canvas" width="400" height="400" aria-label="Snake game"></canvas>
+      <div class="snake-hud">
+        <span>SCORE: <span id="snake-score">0</span></span>
+        <span>HIGH: <span id="snake-high">0</span></span>
+        <button id="snake-restart" class="btn-90s" type="button">RESTART</button>
+      </div>
+      <div class="snake-dpad">
+        <button class="snake-btn" data-dir="up" aria-label="Up">▲</button>
+        <button class="snake-btn" data-dir="left" aria-label="Left">◀</button>
+        <button class="snake-btn" data-dir="down" aria-label="Down">▼</button>
+        <button class="snake-btn" data-dir="right" aria-label="Right">▶</button>
+      </div>
+    </div>
   </section>
 
   <!-- ===== JUKEBOX ===== -->
@@ -140,5 +156,6 @@
 </main>
 
 <script src="script.js"></script>
+<script src="snake.js"></script>
 </body>
 </html>
